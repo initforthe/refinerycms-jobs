@@ -1,0 +1,35 @@
+fr:
+  refinery:
+    plugins:
+      jobs:
+        title: Jobs
+    jobs:
+      admin:
+        jobs:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Job
+            reorder: Réordonner les Jobs
+            reorder_done: Fin de réordonnancement des Jobs
+          records:
+            title: Jobs
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Job. Cliquer sur "Créer un(e) nouve(au/l/lle) Job" pour créer votre premi(er/ère) job.'
+          job:
+            view_live_html: Voir ce(t/tte) job <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) job
+            delete: Supprimer définitivement ce(t/tte) job
+      jobs:
+        show:
+          other: Autres Jobs
+  activerecord:
+    attributes:
+      'refinery/jobs/job':
+        reference: Reference
+        title: Title
+        job_type: Job Type
+        qualifications: Qualifications
+        description: Description
+        location: Location
+        start: Start
+        duration: Duration
+        salary: Salary

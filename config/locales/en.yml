@@ -1,0 +1,53 @@
+en:
+  refinery:
+    plugins:
+      jobs:
+        title: Jobs
+    jobs:
+      admin:
+        jobs:
+          actions:
+            create_new: Add New Job
+            reorder: Reorder Jobs
+            reorder_done: Done Reordering Jobs
+          records:
+            title: Jobs
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Jobs yet. Click "Add New Job" to add your first job.
+          job:
+            view_live_html: View this job live <br/><em>(opens in a new window)</em>
+            view_applications: View applications for this job
+            edit: Edit this job
+            delete: Remove this job forever
+        job_applications:
+          index:
+            no_items_yet: No Job Applications have been submitted yet.
+        categories:
+          index:
+            no_items_yet: There are no Categories yet. Click "New Category" to add your first category.
+        submenu:
+          jobs:
+            create_new: Create New Job
+          job_applications:
+            title: Job Applications
+            manage: Manage
+          categories:
+            title: Categories
+            manage: Manage
+            new: New Category
+          
+      jobs:
+        show:
+          other: Other Jobs
+  activerecord:
+    attributes:
+      'refinery/jobs/job':
+        reference: Reference
+        title: Title
+        job_type: Job Type
+        qualifications: Qualifications
+        description: Description
+        location: Location
+        start: Start
+        duration: Duration
+        salary: Salary

@@ -1,0 +1,112 @@
+<%= form_for [refinery, :jobs_admin, @job] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @job,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :reference -%>
+    <%= f.text_field :reference  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :job_type -%>
+    <%= f.select :job_type, Refinery::Jobs.job_types  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :category -%>
+    <%= f.select :category_id, Refinery::Jobs::Category.order('name ASC').map{|c| [c.name, c.id]}, include_blank: true  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :qualifications -%>
+    <%= f.text_field :qualifications, :class => 'widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:summary, :description].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/jobs/job", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:summary, :description].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :location -%>
+    <%= f.text_field :location  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :start -%>
+    <%= f.date_select :start  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :duration -%>
+    <%= f.text_field :duration  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :day_rate -%>
+    <%= f.text_field :day_rate_from -%> to <%= f.text_field :day_rate_to %>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :salary -%>
+    <%= f.text_field :salary_from  -%> to <%= f.text_field :salary_to %>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :benefits -%>
+    <%= f.text_field :benefits, :class => 'widest'  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :user_id -%>
+    <%= f.select :user_id, Refinery::User.all.map{|u| [u.username, u.id]}, include_blank: true  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.jobs.admin.jobs.job'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @job.reference) %>
+<% end -%>
+<% content_for :stylesheets, stylesheet_link_tag('refinery/jobs/backend') %>
+<% content_for :javascripts, javascript_include_tag('refinery/jobs/backend') %>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

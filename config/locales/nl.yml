@@ -1,0 +1,35 @@
+nl:
+  refinery:
+    plugins:
+      jobs:
+        title: Jobs
+    jobs:
+      admin:
+        jobs:
+          actions:
+            create_new: Maak een nieuwe Job
+            reorder: Wijzig de volgorde van de Jobs
+            reorder_done: Klaar met het wijzingen van de volgorde van de Jobs
+          records:
+            title: Jobs
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Jobs. Druk op 'Maak een nieuwe Job' om de eerste aan te maken.
+          job:
+            view_live_html: Bekijk deze job op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze job
+            delete: Verwijder deze job voor eeuwig
+      jobs:
+        show:
+          other: Andere Jobs
+  activerecord:
+    attributes:
+      'refinery/jobs/job':
+        reference: Reference
+        title: Title
+        job_type: Job Type
+        qualifications: Qualifications
+        description: Description
+        location: Location
+        start: Start
+        duration: Duration
+        salary: Salary

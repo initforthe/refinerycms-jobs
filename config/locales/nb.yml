@@ -1,0 +1,35 @@
+nb:
+  refinery:
+    plugins:
+      jobs:
+        title: Jobs
+    jobs:
+      admin:
+        jobs:
+          actions:
+            create_new: Lag en ny Job
+            reorder: Endre rekkefølgen på Jobs
+            reorder_done: Ferdig å endre rekkefølgen Jobs
+          records:
+            title: Jobs
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Jobs enda. Klikk på "Lag en ny Job" for å legge til din første job.
+          job:
+            view_live_html: Vis hvordan denne job ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne job
+            delete: Fjern denne job permanent
+      jobs:
+        show:
+          other: Andre Jobs
+  activerecord:
+    attributes:
+      'refinery/jobs/job':
+        reference: Reference
+        title: Title
+        job_type: Job Type
+        qualifications: Qualifications
+        description: Description
+        location: Location
+        start: Start
+        duration: Duration
+        salary: Salary

@@ -1,0 +1,27 @@
+<section id='records'>
+  <% if searching? %>
+    <h2><%= t('results_for', :scope => 'refinery.admin.search',
+                             :query => params[:search]) %></h2>
+    <% if @job_applications.any? %>
+      <%= render :partial => "jobs_job_applications",
+                 :collection => @job_applications %>
+    <% else %>
+      <p><%= t('no_results', :scope => 'refinery.admin.search') %></p>
+    <% end %>
+  <% else %>
+    <% if @job_applications.any? %>
+      <%= will_paginate @job_applications %>
+
+      <%= render :partial => "sortable_list" %>
+
+      <%= will_paginate @job_applications %>
+    <% else %>
+      <p>
+        <strong>
+          <%= t('.no_items_yet', :create => t('new', :scope => 'refinery.jobs.admin.submenu.job_applications')) %>
+        </strong>
+      </p>
+    <% end %>
+  <% end %>
+</section>
+<%= render :partial => '/refinery/jobs/admin/submenu' %>

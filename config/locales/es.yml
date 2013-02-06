@@ -1,0 +1,36 @@
+es:
+  refinery:
+    plugins:
+      jobs:
+        title: Jobs
+#        article: masculino/femenino
+    jobs:
+      admin:
+        jobs:
+          actions:
+            create_new: Crear nuevo job
+            reorder: Reordenar jobs
+            reorder_done: Reordenación de jobs completada
+          records:
+            title: Jobs
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay jobs todavía. Pulsa en "Crear nuevo Job" para crear tu primer job.
+          job:
+            view_live_html: Ver este job como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este job
+            delete: Borrar este job para siempre
+      jobs:
+        show:
+          other: Otros jobs
+  activerecord:
+    attributes:
+      'refinery/jobs/job':
+        reference: Reference
+        title: Title
+        job_type: Job Type
+        qualifications: Qualifications
+        description: Description
+        location: Location
+        start: Start
+        duration: Duration
+        salary: Salary

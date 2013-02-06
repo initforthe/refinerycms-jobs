@@ -1,0 +1,99 @@
+<% content_for :body_content_title do %>
+  <%= @job.reference %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Reference</h1>
+    <p>
+      <%=raw @job.reference %>
+    </p>
+  </section>
+  <section>
+    <h1>Title</h1>
+    <p>
+      <%=raw @job.title %>
+    </p>
+  </section>
+  <section>
+    <h1>Job Type</h1>
+    <p>
+      <%=raw @job.job_type %>
+    </p>
+  </section>
+  <section>
+    <h1>Qualifications</h1>
+    <p>
+      <%=raw @job.qualifications %>
+    </p>
+  </section>
+  <section>
+    <h1>Summary</h1>
+    <p>
+      <%=raw @job.summary %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @job.description %>
+    </p>
+  </section>
+  <section>
+    <h1>Location</h1>
+    <p>
+      <%=raw @job.location %>
+    </p>
+  </section>
+  <section>
+    <h1>Start</h1>
+    <p>
+      <%=raw @job.start %>
+    </p>
+  </section>
+  <section>
+    <h1>Duration</h1>
+    <p>
+      <%=raw @job.duration %>
+    </p>
+  </section>
+  <section>
+    <h1>Day Rate</h1>
+    <p>
+      <%= @job.day_rate_from %> to <%= @job.day_rate_to %>
+    </p>
+  </section>
+  <section>
+    <h1>Salary</h1>
+    <p>
+      <%= @job.salary_from %> to <%= @job.salary_to %>
+    </p>
+  </section>
+  <section>
+    <h1>Benefits</h1>
+    <p>
+      <%=raw @job.benefits %>
+    </p>
+  </section>
+  <section>
+    <h1>User</h1>
+    <p>
+      <%=raw @job.user.try(:name) %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="jobs">
+      <% @jobs.each do |job| %>
+        <li>
+          <%= link_to job.reference, refinery.jobs_job_path(job) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

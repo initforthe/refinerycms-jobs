@@ -1,0 +1,19 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(job_application) -%>">
+  <span class='name'>
+    <%= job_application.name %> for
+    <em><%= job_application.job.reference %></em>
+    <span class="preview">&nbsp;</span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag("application_go.png"), refinery.jobs_admin_job_application_path(job_application),
+        :title => t('.view_live_html') %>
+    
+    <%= link_to refinery_icon_tag("delete.png"), refinery.jobs_admin_job_application_path(job_application),
+                :class => "cancel confirm-delete",
+                :title => t('.delete'),
+                :method => :delete,
+                :data => {
+                  :confirm => t('message', :scope => 'refinery.admin.delete', :title => job_application.name)
+                } %>
+  </span>
+</li>

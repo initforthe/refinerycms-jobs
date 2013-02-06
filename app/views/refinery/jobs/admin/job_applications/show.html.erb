@@ -1,0 +1,12 @@
+<h1>Job Application</h1>
+<section id='records'>
+  <h2><%= @job_application.name %></h2>
+  <h3>Covering Letter</h3>
+  <%= simple_format @job_application.covering_letter %>
+  <h3>CV</h3>
+  <p><%= link_to "Download #{@job_application.name}'s CV", @job_application.cv.url %></p>
+</section>
+<aside id='actions'>
+  <p>Telephone: <%= link_to @job_application.telephone, "tel:#{@job_application.telephone}" %></p>
+  <p>Email: <%= mail_to @job_application.email %></p>
+</aside>

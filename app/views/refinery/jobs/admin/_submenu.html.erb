@@ -1,0 +1,41 @@
+<nav id='actions' class='multilist'>
+  <ul>
+    <% if ::Refinery::Jobs::Admin::JobsController.searchable? %>
+      <li>
+        <%= render '/refinery/admin/search', :url => refinery.jobs_admin_jobs_path %>
+      </li>
+    <% end %>
+    <li>
+      <%= link_to t('.jobs.create_new'), refinery.new_jobs_admin_job_path,
+                   :class => "add_icon" %>
+    </li>
+  </ul>
+
+  <ul class='collapsible_menu'>
+    <li class='not_a_link'>
+      <%= link_to t('.job_applications.title'), '#',
+                   :class => 'page_copy_icon' %>
+    </li>
+    <li>
+      <%= link_to t('.job_applications.manage'), refinery.jobs_admin_job_applications_path,
+                   :class => 'page_icon' %>
+    </li>
+  </ul>
+
+  <ul class='collapsible_menu'>
+    <li class='not_a_link'>
+      <%= link_to t('.categories.title'), '#',
+                  :class => 'folder_icon' %>
+    </li>
+    <li>
+      <%= link_to t('.categories.manage'), refinery.jobs_admin_categories_path,
+                  :class => 'folder_edit_icon' %>
+    </li>
+    <li>
+      <%= link_to t('.categories.new'), refinery.new_jobs_admin_category_path,
+                  :class => 'folder_add_icon' %>
+    </li>
+  </ul>
+</nav>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/jobs/backend') %>
