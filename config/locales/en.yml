@@ -35,6 +35,18 @@ en:
             title: Categories
             manage: Manage
             new: New Category
+      job_application_mailer:
+        notification:
+          greeting: Hi
+          you_recieved_new_job_application: You just recieved a new job application on your website.
+          job_application_starts: --- application starts ---
+          job_application_ends: --- application ends ---
+          from: From
+          email: Email
+          phone: Phone
+          covering_letter: Covering letter
+          closing_line: Kind Regards
+          ps: P.S. All your applications are stored in the "Careers" section of Refinery should you ever want to view it later there.
           
       jobs:
         show:

@@ -1,0 +1,19 @@
+<%=raw t('.greeting') %>,
+
+<%=raw t('.you_recieved_new_job_application') %>
+
+<%=raw t('.job_application_starts') %>
+
+<%=raw t('.from') %>: <%= @job_application.name %>
+<%=raw t('.email') %>: <%= @job_application.email %>
+<%=raw t('.phone') %>: <%= @job_application.phone %>
+<%=raw t('.covering_letter') %>:
+
+<%=strip_tags(@job_application.covering_letter) %>
+
+<%=raw t('.job_application_ends') %>
+
+<%=raw t('.closing_line') %>,
+<%=raw Refinery::Core.site_name %>
+
+<%=raw t('.ps') -%>
