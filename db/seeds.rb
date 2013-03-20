@@ -23,3 +23,7 @@
     end
   end
 end
+
+(Refinery::Jobs::Setting.methods.sort - ActiveRecord::Base.methods).each do |setting|
+  Refinery::Jobs::Setting.send(setting) unless setting.to_s =~ /=$/
+end

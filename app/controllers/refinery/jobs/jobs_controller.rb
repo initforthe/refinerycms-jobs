@@ -35,6 +35,8 @@ module Refinery
 
         present(@page)
         if @job_application.save
+          ::Refinery::Jobs::JobApplicationMailer.confirmation(@job_application, request).deliver
+          ::Refinery::Jobs::JobApplicationMailer.notification(@job_application, request).deliver
           redirect_to refinery.jobs_job_path(@job), flash: { success: 'Thank you for your application' }
         else
           render 'show'
