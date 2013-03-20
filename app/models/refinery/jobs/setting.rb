@@ -47,7 +47,7 @@ module Refinery
 
         def notification_subject
           Refinery::Setting.find_or_set(:job_application_notification_subject,
-                                        "New inquiry from your website",
+                                        "New job application from your website",
                                         :scoping => "job_applications")
         end
         
