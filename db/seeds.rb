@@ -22,6 +22,21 @@
       page.parts.create(:title => default_page_part, :body => nil, :position => index)
     end
   end
+
+  unless Refinery::Page.where(:link_url => '/jobs/thank_you').any?
+    thank_you_page = Refinery::Page.where(link_url: url).first.children.create({
+      :title => "Thank You",
+      :link_url => "/jobs/thank_you",
+      :menu_match => "^/(jobs)/thank_you$",
+      :show_in_menu => false,
+      :deletable => false
+    })
+    thank_you_page.parts.create({
+      :title => "Body",
+      :body => "<p>We've received your job application and will get back to you with a response shortly.</p><p><a href='/'>Return to the home page</a></p>",
+      :position => 0
+    })
+  end 
 end
 
 (Refinery::Jobs::Setting.methods.sort - ActiveRecord::Base.methods).each do |setting|

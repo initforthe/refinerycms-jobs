@@ -37,10 +37,14 @@ module Refinery
         if @job_application.save
           ::Refinery::Jobs::JobApplicationMailer.confirmation(@job_application, request).deliver
           ::Refinery::Jobs::JobApplicationMailer.notification(@job_application, request).deliver
-          redirect_to refinery.jobs_job_path(@job), flash: { success: 'Thank you for your application' }
+          redirect_to refinery.thank_you_jobs_jobs_path
         else
           render 'show'
         end
+      end
+
+      def thank_you
+        @page = ::Refinery::Page.find_by_link_url('/jobs/thank_you')
       end
 
     protected

@@ -3,6 +3,7 @@ Refinery::Core::Engine.routes.append do
   # Frontend routes
   namespace :jobs do
     resources :jobs, :path => '', :only => [:index, :show] do
+      get :thank_you, on: :collection
       member do
         post :apply
       end
