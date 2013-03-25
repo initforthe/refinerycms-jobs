@@ -5,8 +5,13 @@ module Refinery
       isolate_namespace Refinery::Jobs
 
       engine_name :refinery_jobs
-      
+
       config.autoload_paths += %W( #{config.root}/lib )
+
+      initializer 'attach-refinery-jobs-with-dragonfly', :after => :load_config_initializers do |app|
+        ::Refinery::Jobs::Dragonfly.configure!
+        ::Refinery::Jobs::Dragonfly.attach!(app)
+      end
 
       initializer "register refinerycms_jobs plugin" do
         Refinery::Plugin.register do |plugin|
@@ -18,7 +23,6 @@ module Refinery
             :class_name => :'refinery/jobs/job',
             :title => 'reference'
           }
-          
         end
       end
 
