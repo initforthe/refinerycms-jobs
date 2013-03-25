@@ -1,4 +1,5 @@
 Refinery::Core::Engine.routes.append do
+  match '/system/jobs/*dragonfly', :to => Dragonfly[:refinery_jobs]
 
   # Frontend routes
   namespace :jobs do
